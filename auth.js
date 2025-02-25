@@ -4,12 +4,12 @@ if (typeof window.supabase === "undefined") {
 
 const SUPABASE_URL = "https://uvxwcnhnbuwbdcbyyfev.supabase.co"; 
 
-const TOKEN_API = process.env.TOKEN_API; 
+const API_TOKEN = process.env.API_TOKEN; 
 
-if (!TOKEN_API) {
+if (!API_TOKEN) {
     console.error("❌ Missing Supabase API token. Please set it up.");
 } else {
-    window.supabase = window.supabase.createClient(SUPABASE_URL, TOKEN_API);
+    window.supabase = window.supabase.createClient(SUPABASE_URL, API_TOKEN);
     console.log("✅ Supabase Initialized:", window.supabase);
 }
 

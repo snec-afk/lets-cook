@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ DOM fully loaded!");
     console.log("✅ script.js loaded successfully!");
 
-    const API_TOKEN = process.env.API_TOKEN; 
+    const TOKEN_API = process.env.TOKEN_API; 
 
-    if (!API_TOKEN) {
+    if (!TOKEN_API) {
         console.error("❌ Missing Spoonacular API token. Please set it up.");
     }
 
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (document.getElementById("ketogenic").checked) dietPreferences.push("ketogenic");
 
             const dietQuery = dietPreferences.length > 0 ? `&diet=${dietPreferences.join(",")}` : "";
-            const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=5&apiKey=${API_TOKEN}${dietQuery}`;
+            const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=5&apiKey=${TOKEN_API}${dietQuery}`;
 
             fetch(apiUrl)
                 .then(response => response.json())
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         surpriseButton.addEventListener("click", function () {
             console.log("✅ Surprise Me button clicked!");
 
-            const randomApiUrl = `https://api.spoonacular.com/recipes/random?number=1&apiKey=${API_TOKEN}`;
+            const randomApiUrl = `https://api.spoonacular.com/recipes/random?number=1&apiKey=${TOKEN_API}`;
 
             fetch(randomApiUrl)
                 .then(response => response.json())
