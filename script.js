@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ DOM fully loaded!");
     console.log("✅ script.js loaded successfully!");
 
+    // This placeholder will be replaced during deployment via deploy.yml
     const TOKEN_API = "TOKEN_API_PLACEHOLDER";
 
     if (!TOKEN_API || TOKEN_API === "TOKEN_API_PLACEHOLDER") {
@@ -62,13 +63,17 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             const dietPreferences = [];
-            if (document.getElementById("vegetarian").checked) dietPreferences.push("vegetarian");
-            if (document.getElementById("vegan").checked) dietPreferences.push("vegan");
-            if (document.getElementById("glutenFree").checked) dietPreferences.push("glutenFree");
-            if (document.getElementById("ketogenic").checked) dietPreferences.push("ketogenic");
+            if (document.getElementById("vegetarian") && document.getElementById("vegetarian").checked)
+                dietPreferences.push("vegetarian");
+            if (document.getElementById("vegan") && document.getElementById("vegan").checked)
+                dietPreferences.push("vegan");
+            if (document.getElementById("glutenFree") && document.getElementById("glutenFree").checked)
+                dietPreferences.push("glutenFree");
+            if (document.getElementById("ketogenic") && document.getElementById("ketogenic").checked)
+                dietPreferences.push("ketogenic");
 
             const dietQuery = dietPreferences.length > 0 ? `&diet=${dietPreferences.join(",")}` : "";
-            const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=5&apiKey=${TOKEN_API}${dietQuery}`;
+            const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${encodeURIComponent(ingredients)}&number=5&apiKey=${TOKEN_API}${dietQuery}`;
 
             fetch(apiUrl)
                 .then(response => response.json())
@@ -123,9 +128,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function openModal(modalId) {
-    document.getElementById(modalId).style.display = "flex";
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = "flex";
+    }
 }
 
 function closeModal(modalId) {
-    document.getElementById(modalId).style.display = "none";
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = "none";
+    }
 }

@@ -4,6 +4,7 @@ if (typeof window.supabase === "undefined") {
 
 const SUPABASE_URL = "https://uvxwcnhnbuwbdcbyyfev.supabase.co"; 
 
+// This placeholder will be replaced during deployment via deploy.yml
 const API_TOKEN = "API_TOKEN_PLACEHOLDER";
 
 if (!API_TOKEN || API_TOKEN === "API_TOKEN_PLACEHOLDER") {
@@ -47,7 +48,11 @@ window.handleLogout = async function () {
 };
 
 window.checkUserState = function (callback) {
+    if (!window.supabase || !window.supabase.auth) {
+        console.error("❌ Supabase auth not available.");
+        return;
+    }
     window.supabase.auth.onAuthStateChange((event, session) => {
-        callback(session?.user || null);
+        callback(session ? session.user : null);
     });
 };
