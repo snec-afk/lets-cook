@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const TOKEN_API = "TOKEN_API_PLACEHOLDER";
 
     if (!TOKEN_API || TOKEN_API === "TOKEN_API_PLACEHOLDER") {
-        console.error("❌ Missing Spoonacular API token. Please ensure it is injected correctly.");
+        console.error("❌ Missing Spoonacular API token. Ensure it's injected correctly.");
     }
 
     if (typeof window.handleSignup !== "function" ||
@@ -120,29 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 .catch(error => console.error("Error fetching random recipe:", error));
         });
     }
-
-    document.querySelectorAll(".close").forEach(button => {
-        button.addEventListener("click", function () {
-            let modal = button.closest(".modal");
-            if (modal) {
-                closeModal(modal.id);
-            }
-        });
-    });
-
-    window.addEventListener("click", function (event) {
-        let loginModal = document.getElementById("loginModal");
-        let signUpModal = document.getElementById("signUpModal");
-
-        if (event.target === loginModal) {
-            closeModal("loginModal");
-        }
-        if (event.target === signUpModal) {
-            closeModal("signUpModal");
-        }
-    });
-
-    console.log("✅ Event Listeners Attached Successfully!");
 });
 
 function openModal(modalId) {
