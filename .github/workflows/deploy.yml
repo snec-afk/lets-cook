@@ -13,21 +13,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Debug Secrets Presence
+    - name: Inject API Keys into JavaScript
       run: |
-        if [[ -z "${{ secrets.API_TOKEN }}" ]]; then
-          echo "❌ API_TOKEN is missing!"
-          exit 1
-        else
-          echo "✅ API_TOKEN is set."
-        fi
-
-        if [[ -z "${{ secrets.TOKEN_API }}" ]]; then
-          echo "❌ TOKEN_API is missing!"
-          exit 1
-        else
-          echo "✅ TOKEN_API is set."
-        fi
+        sed -i 's|API_TOKEN_PLACEHOLDER|${{ secrets.API_TOKEN }}|g' auth.js
+        sed -i 's|TOKEN_API_PLACEHOLDER|${{ secrets.TOKEN_API }}|g' script.js
 
     - name: Deploy to GitHub Pages
       run: echo "✅ Deployment successful!"

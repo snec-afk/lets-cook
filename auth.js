@@ -3,11 +3,10 @@ if (typeof window.supabase === "undefined") {
 }
 
 const SUPABASE_URL = "https://uvxwcnhnbuwbdcbyyfev.supabase.co"; 
+const API_TOKEN = "API_TOKEN_PLACEHOLDER"; 
 
-const API_TOKEN = process.env.API_TOKEN; 
-
-if (!API_TOKEN) {
-    console.error("❌ Missing Supabase API token. Please set it up.");
+if (!API_TOKEN || API_TOKEN === "API_TOKEN_PLACEHOLDER") {
+    console.error("❌ Missing Supabase API token. Please ensure it is injected correctly.");
 } else {
     window.supabase = window.supabase.createClient(SUPABASE_URL, API_TOKEN);
     console.log("✅ Supabase Initialized:", window.supabase);

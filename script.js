@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ DOM fully loaded!");
     console.log("✅ script.js loaded successfully!");
 
-    const TOKEN_API = process.env.TOKEN_API; 
+    const TOKEN_API = "TOKEN_API_PLACEHOLDER";
 
-    if (!TOKEN_API) {
-        console.error("❌ Missing Spoonacular API token. Please set it up.");
+    if (!TOKEN_API || TOKEN_API === "TOKEN_API_PLACEHOLDER") {
+        console.error("❌ Missing Spoonacular API token. Please ensure it is injected correctly.");
     }
 
     if (typeof window.handleSignup !== "function" ||
