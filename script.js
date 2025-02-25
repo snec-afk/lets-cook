@@ -2,10 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ DOM fully loaded!");
     console.log("✅ script.js loaded successfully!");
 
-    // This placeholder will be replaced during deployment via deploy.yml
-    const TOKEN_API = "TOKEN_API_PLACEHOLDER";
+    const TOKEN_API = "SPOONACULAR_API_PLACEHOLDER";
 
-    if (!TOKEN_API || TOKEN_API === "TOKEN_API_PLACEHOLDER") {
+    if (!TOKEN_API || TOKEN_API === "SPOONACULAR_API_PLACEHOLDER") {
         console.error("❌ Missing Spoonacular API token. Ensure it's injected correctly.");
     }
 

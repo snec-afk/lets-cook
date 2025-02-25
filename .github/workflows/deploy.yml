@@ -13,10 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Inject API Keys into JavaScript
+      - name: Inject Spoonacular API Key into JavaScript
         run: |
-          sed -i 's|API_TOKEN_PLACEHOLDER|${{ secrets.API_TOKEN }}|g' auth.js
-          sed -i 's|TOKEN_API_PLACEHOLDER|${{ secrets.TOKEN_API }}|g' script.js
+          sed -i 's|SPOONACULAR_API_PLACEHOLDER|${{ secrets.SPOONACULAR_API }}|g' script.js
 
       - name: Deploy to GitHub Pages
         run: echo "✅ Deployment successful!"
