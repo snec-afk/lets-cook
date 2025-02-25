@@ -7,20 +7,20 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <!-- 🔹 Logo -->
+ 
     <img id="logo" src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="Chef Logo">
 
-    <!-- 🔹 Authentication Buttons -->
+   
     <div id="auth-buttons">
         <button id="loginBtn">Login</button>
         <button id="signUpBtn">Sign Up</button>
     </div>
 
-    <!-- 🔹 Input for Ingredients -->
+
     <h1>What's in Your Kitchen?</h1>
     <input type="text" id="ingredients" placeholder="Enter ingredients (e.g., eggs, flour)">
 
-    <!-- 🔹 Dietary Preferences -->
+
     <div id="diet-filters">
         <label><input type="checkbox" id="vegetarian"> Vegetarian</label>
         <label><input type="checkbox" id="vegan"> Vegan</label>
@@ -28,14 +28,14 @@
         <label><input type="checkbox" id="ketogenic"> Keto</label>
     </div>
 
-    <!-- 🔹 Action Buttons -->
+  
     <button id="cookBtn">Let's Cook</button>
     <button id="surpriseBtn">Surprise Me!</button>
 
-    <!-- 🔹 Recipe Display Section -->
+
     <div id="recipes"></div>
 
-    <!-- 🔹 Login Modal -->
+
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('loginModal')">&times;</span>
@@ -46,7 +46,7 @@
         </div>
     </div>
     
-    <!-- 🔹 Sign-Up Modal -->
+
     <div id="signUpModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('signUpModal')">&times;</span>
@@ -58,13 +58,13 @@
         </div>
     </div>
 
-<!-- 🔹 Load Supabase SDK FIRST -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
-<!-- 🔹 Then load auth.js -->
+
 <script src="./auth.js"></script>
 
-<!-- 🔹 Finally load script.js -->
+
 <script src="./script.js"></script>
 
 </body>

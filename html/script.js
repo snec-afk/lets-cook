@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ DOM fully loaded!");
-    
-    // ✅ Debugging: Ensure script.js is loading
     console.log("✅ script.js loaded successfully!");
 
-    // ✅ Ensure Supabase Functions Exist
+    const TOKEN_API = process.env.TOKEN_API; 
+
+    if (!TOKEN_API) {
+        console.error("❌ Missing Spoonacular API token. Please set it up.");
+    }
+
     if (typeof window.handleSignup !== "function" ||
         typeof window.handleLogin !== "function" ||
         typeof window.handleLogout !== "function" ||
@@ -13,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // ✅ Handle Authentication UI State
     window.checkUserState((user) => {
         const authButtons = document.getElementById("auth-buttons");
 
@@ -43,12 +45,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // ✅ Handle "Let's Cook" Button
     const cookButton = document.getElementById("cookBtn");
     const inputField = document.getElementById("ingredients");
     const recipesContainer = document.getElementById("recipes");
-
-    console.log("🔍 Checking cookButton:", cookButton); // Debugging log
 
     if (!cookButton) {
         console.error("❌ cookBtn not found in DOM! Check if the ID exists in HTML.");
@@ -69,8 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (document.getElementById("ketogenic").checked) dietPreferences.push("ketogenic");
 
             const dietQuery = dietPreferences.length > 0 ? `&diet=${dietPreferences.join(",")}` : "";
-            const apiKey = "8330b4a865ac47f8bcf1f10ef561e00b"; 
-            const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=5&apiKey=${apiKey}${dietQuery}`;
+            const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=5&apiKey=${TOKEN_API}${dietQuery}`;
 
             fetch(apiUrl)
                 .then(response => response.json())
@@ -91,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ✅ Handle "Surprise Me!" Button
     const surpriseButton = document.getElementById("surpriseBtn");
 
     if (!surpriseButton) {
@@ -100,8 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         surpriseButton.addEventListener("click", function () {
             console.log("✅ Surprise Me button clicked!");
 
-            const apiKey = "8330b4a865ac47f8bcf1f10ef561e00b"; 
-            const randomApiUrl = `https://api.spoonacular.com/recipes/random?number=1&apiKey=${apiKey}`;
+            const randomApiUrl = `https://api.spoonacular.com/recipes/random?number=1&apiKey=${TOKEN_API}`;
 
             fetch(randomApiUrl)
                 .then(response => response.json())
@@ -125,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ✅ Ensure Clicking "X" Closes Modal
     document.querySelectorAll(".close").forEach(button => {
         button.addEventListener("click", function () {
             let modal = button.closest(".modal");
@@ -135,7 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ✅ Ensure Clicking Outside the Modal Closes It
     window.addEventListener("click", function (event) {
         let loginModal = document.getElementById("loginModal");
         let signUpModal = document.getElementById("signUpModal");
@@ -151,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ Event Listeners Attached Successfully!");
 });
 
-// ✅ Open & Close Modal Functions
 function openModal(modalId) {
     document.getElementById(modalId).style.display = "flex";
 }

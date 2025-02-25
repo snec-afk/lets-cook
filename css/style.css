@@ -1,4 +1,3 @@
-/* ------------------- Import Modern Font ------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 * {
@@ -9,34 +8,32 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #e8f5e9; /* Soft Mint Green */
-    color: #2c2c2c; /* Dark Gray */
+    background-color: #e8f5e9; 
+    color: #2c2c2c; 
     text-align: center;
     padding: 40px;
 }
 
-/* ------------------- Logo Styling ------------------- */
+
 #logo {
     width: 80px;
     height: auto;
     margin-bottom: 10px;
 }
 
-/* ------------------- Title Styling ------------------- */
 h1 {
     font-size: 2.8rem;
     font-weight: 600;
-    color: #2e7d32; /* Deep Green */
+    color: #2e7d32; 
     margin-bottom: 20px;
 }
 
-/* ------------------- Input and Button Styling ------------------- */
 input {
     width: 60%;
     max-width: 500px;
     padding: 14px;
     font-size: 16px;
-    border: 2px solid #388e3c; /* Forest Green */
+    border: 2px solid #388e3c; 
     border-radius: 8px;
     outline: none;
     transition: 0.3s;
@@ -44,11 +41,11 @@ input {
 }
 
 input:focus {
-    border-color: #2e7d32; /* Deep Green */
+    border-color: #2e7d32; 
 }
 
 #cookBtn {
-    background: linear-gradient(135deg, #4caf50, #2e7d32); /* Forest Green */
+    background: linear-gradient(135deg, #4caf50, #2e7d32); 
     color: white;
     padding: 12px 20px;
     font-size: 16px;
@@ -59,7 +56,7 @@ input:focus {
     margin-top: 15px;
 }
 #signBtn {
-    background: linear-gradient(135deg, #4caf50, #2e7d32); /* Forest Green */
+    background: linear-gradient(135deg, #4caf50, #2e7d32); 
     color: white;
     padding: 12px 20px;
     font-size: 16px;
@@ -70,7 +67,7 @@ input:focus {
     margin-top: 15px;
 }
 #loginBtn {
-    background: linear-gradient(135deg, #4caf50, #2e7d32); /* Forest Green */
+    background: linear-gradient(135deg, #4caf50, #2e7d32); 
     color: white;
     padding: 12px 20px;
     font-size: 16px;
@@ -82,10 +79,9 @@ input:focus {
 }
 
 #cookBtn:hover {
-    background: linear-gradient(135deg, #2e7d32, #1b5e20); /* Darker Green */
+    background: linear-gradient(135deg, #2e7d32, #1b5e20); 
 }
 
-/* ------------------- Dietary Filters ------------------- */
 #diet-filters {
     margin: 20px auto;
     display: flex;
@@ -95,7 +91,7 @@ input:focus {
 }
 
 #diet-filters label {
-    background: rgba(56, 142, 60, 0.15); /* Light Green */
+    background: rgba(56, 142, 60, 0.15);
     padding: 8px 12px;
     border-radius: 6px;
     cursor: pointer;
@@ -107,7 +103,7 @@ input:focus {
     background: rgba(56, 142, 60, 0.3);
 }
 
-/* ------------------- Recipe Display Grid ------------------- */
+
 #recipes {
     margin-top: 30px;
     display: grid;
@@ -117,7 +113,7 @@ input:focus {
     justify-content: center;
 }
 
-/* ------------------- Recipe Card Styling ------------------- */
+
 .recipe-card {
     background: white;
     padding: 18px;
@@ -142,12 +138,12 @@ input:focus {
 .recipe-card h3 {
     font-size: 1.6rem;
     margin: 12px 0;
-    color: #2e7d32; /* Deep Green */
+    color: #2e7d32; 
 }
 
-/* ------------------- Ingredients Styling ------------------- */
+
 .ingredients-container {
-    background: rgba(232, 245, 233, 0.9); /* Soft Mint Green */
+    background: rgba(232, 245, 233, 0.9); 
     padding: 12px;
     border-radius: 8px;
     margin-top: 12px;
@@ -155,45 +151,45 @@ input:focus {
     text-align: center;
     line-height: 1.5;
     display: flex;
-    flex-direction: column; /* 🔥 Stacks Used & Missing vertically */
+    flex-direction: column; 
     align-items: center;
 }
 
-/* Used Ingredients - Subtle, Clean Look */
+
 .used-ingredients {
-    color: #000000; /* Black */
+    color: #000000; 
     font-weight: bold;
     padding: 5px 0;
     text-align: center;
-    width: 100%; /* 🔥 Ensures full-width alignment */
+    width: 100%; 
 }
 
-/* Missing Ingredients - Stylish Red Highlight */
+
 .missing-ingredients {
-    color: #d32f2f; /* Modern Red */
+    color: #d32f2f; 
     font-weight: bold;
-    background: rgba(211, 47, 47, 0.1); /* Light Red */
+    background: rgba(211, 47, 47, 0.1); 
     padding: 6px 12px;
     border-radius: 6px;
     text-align: center;
-    width: 100%; /* 🔥 Ensures full-width alignment */
-    margin-top: 5px; /* 🔥 Adds spacing between Used & Missing */
+    width: 100%; 
+    margin-top: 5px; 
 }
 
-/* ------------------- Recipe Button ------------------- */
+
 .recipe-card a {
     display: inline-block;
     margin-top: 12px;
-    padding: 8px 12px; /* 🔥 Smaller padding */
+    padding: 8px 12px; 
     text-decoration: none;
     background: linear-gradient(135deg, #388e3c, #2e7d32);
     color: white;
     border-radius: 6px;
     font-weight: bold;
-    font-size: 14px; /* 🔥 Smaller font */
+    font-size: 14px; 
     transition: 0.3s;
-    width: auto; /* 🔥 Prevents full-width expansion */
-    min-width: 120px; /* 🔥 Ensures a reasonable size */
+    width: auto; 
+    min-width: 120px;
 }
 
 .recipe-card a:hover {
@@ -201,7 +197,7 @@ input:focus {
 }
 
 #surpriseBtn {
-    background: linear-gradient(135deg, #4caf50, #2e7d32); /* Forest Green */
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
     color: white;
     padding: 12px 20px;
     font-size: 16px;
@@ -213,10 +209,10 @@ input:focus {
 }
 
 #surpriseBtn:hover {
-    background: linear-gradient(135deg, #2e7d32, #1b5e20); /* Darker Green */
+    background: linear-gradient(135deg, #2e7d32, #1b5e20); 
 }
 
-/* ------------------- Authentication Buttons (Top Right Corner) ------------------- */
+
 #auth-buttons {
     position: absolute;
     top: 20px;
@@ -226,7 +222,7 @@ input:focus {
 }
 
 #auth-buttons button {
-    background: linear-gradient(135deg, #4caf50, #2e7d32); /* Forest Green */
+    background: linear-gradient(135deg, #4caf50, #2e7d32); 
     color: white;
     padding: 10px 18px;
     font-size: 14px;
@@ -237,12 +233,12 @@ input:focus {
 }
 
 #auth-buttons button:hover {
-    background: linear-gradient(135deg, #2e7d32, #1b5e20); /* Darker Green */
+    background: linear-gradient(135deg, #2e7d32, #1b5e20); 
 }
 
-/* ------------------- Modal Styling (Login & Sign-Up) ------------------- */
+
 .modal {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed;
     z-index: 1000;
     left: 0;
