@@ -13,11 +13,21 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up API tokens
+    - name: Debug Secrets Presence
       run: |
-        echo "API_TOKEN=${{ secrets.API_TOKEN }}" >> $GITHUB_ENV
-        echo "TOKEN_API=${{ secrets.TOKEN_API }}" >> $GITHUB_ENV
+        if [[ -z "${{ secrets.API_TOKEN }}" ]]; then
+          echo "❌ API_TOKEN is missing!"
+          exit 1
+        else
+          echo "✅ API_TOKEN is set."
+        fi
+
+        if [[ -z "${{ secrets.TOKEN_API }}" ]]; then
+          echo "❌ TOKEN_API is missing!"
+          exit 1
+        else
+          echo "✅ TOKEN_API is set."
+        fi
 
     - name: Deploy to GitHub Pages
-      run: |
-        echo "Deployment successful"
+      run: echo "✅ Deployment successful!"
